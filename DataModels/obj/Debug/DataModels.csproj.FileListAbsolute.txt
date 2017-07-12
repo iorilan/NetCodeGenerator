@@ -1,0 +1,5 @@
+C:\Craft\Git\NetGenerator\NetCodeGenerator\DataModels\bin\Debug\DataModels.dll
+C:\Craft\Git\NetGenerator\NetCodeGenerator\DataModels\bin\Debug\DataModels.pdb
+C:\Craft\Git\NetGenerator\NetCodeGenerator\DataModels\obj\Debug\DataModels.csprojResolveAssemblyReference.cache
+C:\Craft\Git\NetGenerator\NetCodeGenerator\DataModels\obj\Debug\DataModels.dll
+C:\Craft\Git\NetGenerator\NetCodeGenerator\DataModels\obj\Debug\DataModels.pdb

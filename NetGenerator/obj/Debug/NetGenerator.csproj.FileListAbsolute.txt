@@ -1,0 +1,5 @@
+C:\Craft\Git\NetGenerator\NetCodeGenerator\NetGenerator\bin\Debug\NetGenerator.dll
+C:\Craft\Git\NetGenerator\NetCodeGenerator\NetGenerator\bin\Debug\NetGenerator.pdb
+C:\Craft\Git\NetGenerator\NetCodeGenerator\NetGenerator\obj\Debug\NetGenerator.csprojResolveAssemblyReference.cache
+C:\Craft\Git\NetGenerator\NetCodeGenerator\NetGenerator\obj\Debug\NetGenerator.dll
+C:\Craft\Git\NetGenerator\NetCodeGenerator\NetGenerator\obj\Debug\NetGenerator.pdb

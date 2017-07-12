@@ -1,6 +1,37 @@
-﻿<#@ template debug="false" hostspecific="false" language="C#" #>
-<#@ assembly name="System.Core" #>
-<#@ import namespace="System.Linq" #>
-<#@ import namespace="System.Text" #>
-<#@ import namespace="System.Collections.Generic" #>
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
 <#@ output extension=".cs" #>
+<#@ assembly name="$(SolutionDir)\DataModels\bin\Debug\DataModels.dll" #>
+<#@ import namespace="DataModels" #>
+<#@ assembly name="System.Data" #>
+<#@ assembly name="System.xml" #>
+<#@ assembly name="mscorlib" #>
+<#@ import namespace="System" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Reflection" #>
+<#
+var forType = typeof(TableSample);
+var theDataAccessTypeName = forType.Name;
+#>
+using System;
+
+/// <summary>
+/// This code is generated from NetGenerator
+/// Business Obj : <#=theDataAccessTypeName#>Obj
+/// </summary>
+public class <#=theDataAccessTypeName#>Obj
+{
+<#
+var props = forType.GetProperties();
+foreach (var p in props){
+	var typeName = p.PropertyType.Name;
+	var pName = p.Name;
+	if(typeName.Contains("Nullable")){
+		typeName = Nullable.GetUnderlyingType(p.PropertyType).Name;
+	}
+#>
+	public <#=typeName #> <#= pName #> { get; set; }
+
+<#
+}
+#>
+}

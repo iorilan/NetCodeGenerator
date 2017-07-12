@@ -40,7 +40,163 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessLayer\BusinessService.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BusinessService.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\ReflectObj.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReflectObj.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\DataTableHelpers.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataTableHelpers.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\MapperEx.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MapperEx.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\ServiceHelper.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ServiceHelper.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UILayer\App_Start\Startup.Auth.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Startup.Auth.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UILayer\Authentication\ApplicationOAuthProvider.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ApplicationOAuthProvider.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="BusinessLayer\BusinessService.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>BusinessService.cs</LastGenOutput>
+    </Content>
+    <Content Include="BusinessLayer\ReflectObj.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ReflectObj.cs</LastGenOutput>
+    </Content>
+    <Content Include="DataLayer\AspNetUserTables.Sql" />
+    <Content Include="Helpers\DataTableHelpers.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DataTableHelpers.cs</LastGenOutput>
+    </Content>
+    <Content Include="Helpers\MapperEx.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>MapperEx.cs</LastGenOutput>
+    </Content>
+    <Content Include="Helpers\ServiceHelper.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ServiceHelper.cs</LastGenOutput>
+    </Content>
+    <Content Include="UILayer\App_Start\Startup.Auth.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Startup.Auth.cs</LastGenOutput>
+    </Content>
+    <Content Include="UILayer\Authentication\ApplicationOAuthProvider.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ApplicationOAuthProvider.cs</LastGenOutput>
+    </Content>
+    <Content Include="UILayer\Authentication\ApplicationRefreshTokenProvider.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ApplicationRefreshTokenProvider.txt</LastGenOutput>
+    </Content>
+    <Content Include="UILayer\Authentication\ApplicationRefreshTokenProvider.txt">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ApplicationRefreshTokenProvider.tt</DependentUpon>
+    </Content>
+    <Content Include="UILayer\Controller.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Controller.txt</LastGenOutput>
+    </Content>
+    <Content Include="UILayer\Controller.txt">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Controller.tt</DependentUpon>
+    </Content>
+    <Content Include="UILayer\Views\Create.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Create.cshtml</LastGenOutput>
+    </Content>
+    <Content Include="UILayer\Views\Detail.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Detail.txt</LastGenOutput>
+    </Content>
+    <Content Include="UILayer\Views\Detail.txt">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Detail.tt</DependentUpon>
+    </Content>
+    <Content Include="UILayer\Views\Edit.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Edit.cshtml</LastGenOutput>
+    </Content>
+    <Content Include="UILayer\Views\Index.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Index.cshtml</LastGenOutput>
+    </Content>
+    <Content Include="UILayer\Views\SiteJS.js">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SiteJS.tt</DependentUpon>
+    </Content>
+    <Content Include="UILayer\Views\SiteJS.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SiteJS.js</LastGenOutput>
+    </Content>
+    <Content Include="UILayer\Views\_SharedLayout.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>_SharedLayout.cshtml</LastGenOutput>
+    </Content>
+    <Content Include="UILayer\WebConfig.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>WebConfig.config</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="UILayer\Scripts\" />
+    <Folder Include="UILayer\Views\Template\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="UILayer\Views\Create.cshtml">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Create.tt</DependentUpon>
+    </None>
+    <None Include="UILayer\Views\Edit.cshtml">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Edit.tt</DependentUpon>
+    </None>
+    <None Include="UILayer\Views\Index.cshtml">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Index.tt</DependentUpon>
+    </None>
+    <None Include="UILayer\Views\_SharedLayout.cshtml">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_SharedLayout.tt</DependentUpon>
+    </None>
+    <None Include="UILayer\WebConfig.config">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WebConfig.tt</DependentUpon>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

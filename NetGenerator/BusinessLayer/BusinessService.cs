@@ -37,7 +37,7 @@ namespace YourProject.BusinessLogic.Services
                                     .FirstOrDefaultAsync(x => x.Id == id);
 
                     var detail = new yourTableObj();
-                    detail = MapperEx.CreateFrom<yourTable, yourTableObj(obj);
+                    detail = MapperEx.CreateFrom<yourTable, yourTableObj>(obj);
                     return detail;
                 }
             }

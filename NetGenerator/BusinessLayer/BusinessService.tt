@@ -52,7 +52,7 @@ namespace <#=prjName#>.BusinessLogic.Services
                                     .FirstOrDefaultAsync(x => x.Id == id);
 
                     var detail = new <#=modelName#>();
-                    detail = MapperEx.CreateFrom<<#=tableName#>, <#=modelName#>(obj);
+                    detail = MapperEx.CreateFrom<<#=tableName#>, <#=modelName#>>(obj);
                     return detail;
                 }
             }

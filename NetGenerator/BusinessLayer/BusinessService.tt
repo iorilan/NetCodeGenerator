@@ -4,3 +4,176 @@
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
 <#@ output extension=".cs" #>
+<#
+var prjName = "YourProject"; 
+var tableName = "yourTable"; 
+
+var modelName = tableName+"Obj";
+var contextClassName = prjName+"Context";
+var contextInterfaceName = "I"+prjName;
+var repoName = tableName+"s";
+#>
+using System;
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.Data.Entity.Validation;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using log4net;
+using <#=prjName#>.BusinessLogic.Helpers;
+using <#=prjName#>.BusinessLogic.Models;
+using <#=prjName#>.DataAccess;
+using <#=prjName#>.DataAccess.Models;
+using System.Data.Entity.Migrations;
+
+/// <summary>
+/// This service is generated from NetGenerator
+/// </summary>
+namespace <#=prjName#>.BusinessLogic.Services
+{
+    public class <#=modelName#>Service
+    {
+        private <#=contextInterfaceName#> _dbContext;
+        private ILog _log = LogManager.GetLogger(typeof(<#=modelName#>Service));
+
+        public <#=modelName#>Service()
+        {
+            _dbContext = new <#=contextClassName#>();
+        }
+
+        public async Task<<#=modelName#>> GetById(int id)
+        {
+            try
+            {
+                using (var context = _dbContext.NewInstance())
+                {
+                    var obj = await context.<#=repoName#>
+                                    .FirstOrDefaultAsync(x => x.Id == id);
+
+                    var detail = new <#=modelName#>();
+                    detail = MapperEx.CreateFrom<<#=tableName#>, <#=modelName#>(obj);
+                    return detail;
+                }
+            }
+            catch (DbEntityValidationException ex)
+            {
+                _log.Error(ex.FormatException());
+                return new <#=modelName#>();
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.FormatException());
+                return new <#=modelName#>();
+            }
+        }
+
+        public async Task<bool> AddOrUpdate(<#=modelName#> obj)
+        {
+            try
+            {
+                using (var context = _dbContext.NewInstance())
+                {
+                    var tryFind = await context.<#=modelName#>
+                                            .FirstOrDefaultAsync(x => x.Id == obj.Id);
+
+                    var updateingRecord = new <#=tableName#>();
+                    if (tryFind != null)
+                    {
+                        MapperEx.Map(obj, ref updatingRecord);
+                    }
+                    else
+                    {
+                        updatingRecord = MapperEx.CreateFrom<<#=modelName#>, <#=tableName#>>(obj);
+                    }
+
+                    context.<#=repoName#>.AddOrUpdate(updatingRecord);
+                    await context.SaveChangesAsync();
+
+                    return true;
+                }
+            }
+            catch (DbEntityValidationException ex)
+            {
+                _log.Error(ex.FormatException());
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.FormatException());
+            }
+
+            return false;
+        }
+
+        
+        public IList<<#=modelName#>> Search(out int totalCount, int start = 0, int pageSize = 10, string sortField = "", string sortDirection = "desc", string search = "")
+        {
+            totalCount = 0;
+
+            try
+            {
+                using (var context = _dbContext.NewInstance())
+                {
+                    var objs = context.<#=repoName#>;
+
+                    var records = objs.OrderByEx(sortDirection, sortField)
+                                      .Skip(start).Take(pageSize).ToList();
+
+                    totalCount = context.<#=repoName#>.Count();
+
+                    var list = new List<<#=modelName#>>();
+
+                    foreach (var record in records)
+                    {
+                        list.Add(MapperEx.CreateFrom<<#=tableName#>, <#=modelName#>>(record));
+                    }
+
+                    return list;
+                }
+            }
+            catch (DbEntityValidationException ex)
+            {
+                _log.Error(ex.FormatException());
+                return new List<<#=modelName#>>();
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.FormatException());
+                return new List<<#=modelName#>>();
+            }
+        }
+
+		public async Task<bool> Delete(int id)
+        {
+            try
+            {
+                using (var context = _dbContext.NewInstance())
+                {
+                    var obj = await context.<#=repoName#>
+                                    .FirstOrDefaultAsync(x => x.Id == id);
+
+                    if(obj != null){
+						context.<#=repoName#>.Remove(obj);
+						context.SaveChanges();
+						return true;
+					}
+					else{
+						return false;
+						_log.ErrorFormat("failed to delete obj with id '{0}' because record could not be found.",id);
+					}
+                }
+            }
+            catch (DbEntityValidationException ex)
+            {
+                _log.Error(ex.FormatException());
+                return false;
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.FormatException());
+                return false;
+            }
+        }
+    }
+}
+

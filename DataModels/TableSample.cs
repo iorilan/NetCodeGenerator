@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -51,5 +52,10 @@ namespace DataModels
         public string Status { get; set; }
 
         public int ContractId { get; set; }
+
+        public void A()
+        {
+           //var assembly = 
+        }
     }
 }

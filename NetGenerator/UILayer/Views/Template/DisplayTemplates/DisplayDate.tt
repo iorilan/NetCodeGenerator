@@ -1,0 +1,10 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ output extension=".cshtml" #>
+
+@model DateTime?
+@{
+    if (Model.HasValue && Model.Value != DateTime.MinValue)
+    {
+        <span>@Model.Value.ToString("dd/MM/yyyy")</span>
+    }
+}

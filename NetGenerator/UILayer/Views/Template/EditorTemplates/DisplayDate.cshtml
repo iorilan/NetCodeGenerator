@@ -1,0 +1,9 @@
+﻿
+@model DateTime?
+@{
+    if (Model.HasValue && Model.Value != DateTime.MinValue)
+    {
+        string name = ViewData.ModelMetadata.PropertyName;
+        <input type="text" value='@Model.Value.ToString("dd/MM/yyyy")' name="@name" id="@name" class="form-control datepicker" >
+    }
+}

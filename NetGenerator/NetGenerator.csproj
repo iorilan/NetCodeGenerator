@@ -133,12 +133,7 @@
     </Content>
     <Content Include="UILayer\Views\Detail.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Detail.txt</LastGenOutput>
-    </Content>
-    <Content Include="UILayer\Views\Detail.txt">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Detail.tt</DependentUpon>
+      <LastGenOutput>Detail.cshtml</LastGenOutput>
     </Content>
     <Content Include="UILayer\Views\Edit.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -178,6 +173,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Create.tt</DependentUpon>
+    </None>
+    <None Include="UILayer\Views\Detail.cshtml">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Detail.tt</DependentUpon>
     </None>
     <None Include="UILayer\Views\Edit.cshtml">
       <AutoGen>True</AutoGen>

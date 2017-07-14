@@ -51,6 +51,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ReflectObj.tt</DependentUpon>
     </Compile>
+    <Content Include="DataLayer\IDbContext.txt" />
     <Compile Include="Helpers\DataTableHelpers.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

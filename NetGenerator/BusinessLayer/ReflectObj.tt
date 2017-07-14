@@ -8,17 +8,22 @@
 <#@ import namespace="System" #>
 <#@ import namespace="System.Collections.Generic" #>
 <#@ import namespace="System.Reflection" #>
-<#
-var forType = typeof(TableSample);
-var theDataAccessTypeName = forType.Name;
-#>
 using System;
+using System.ComponentModel.DataAnnotations;
 
 /// <summary>
 /// This code is generated from NetGenerator
-/// Business Obj : <#=theDataAccessTypeName#>Obj
+/// including the basic fields of model
 /// </summary>
-public class <#=theDataAccessTypeName#>Obj
+<#
+var assembly = typeof(TableSample).Assembly;
+var types = assembly.GetTypes();
+
+foreach (var t in types){
+var forType = t;
+var theDataAccessTypeName = forType.Name;
+#>
+public partial class <#=theDataAccessTypeName#>Obj
 {
 <#
 var props = forType.GetProperties();
@@ -29,9 +34,20 @@ foreach (var p in props){
 		typeName = Nullable.GetUnderlyingType(p.PropertyType).Name;
 	}
 #>
+	/// <summary>
+    /// <#= pName #> Property
+	/// if you want to show in data table or sort, uncomment below lines and put the sequence
+    /// </summary>
+	//[DisplayColumn(/*display order in data table*/)]
+    //[SortingColumn(/*sort order in data table*/)]
 	public <#=typeName #> <#= pName #> { get; set; }
 
 <#
 }
 #>
 }
+
+
+<#
+}
+#>

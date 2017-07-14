@@ -3,3 +3,4 @@ C:\Craft\Git\NetGenerator\NetCodeGenerator\NetGenerator\bin\Debug\NetGenerator.p
 C:\Craft\Git\NetGenerator\NetCodeGenerator\NetGenerator\obj\Debug\NetGenerator.csprojResolveAssemblyReference.cache
 C:\Craft\Git\NetGenerator\NetCodeGenerator\NetGenerator\obj\Debug\NetGenerator.dll
 C:\Craft\Git\NetGenerator\NetCodeGenerator\NetGenerator\obj\Debug\NetGenerator.pdb
+C:\Users\yeko_min\Documents\GitHub\NetCodeGenerator\NetGenerator\obj\Debug\NetGenerator.csprojResolveAssemblyReference.cache

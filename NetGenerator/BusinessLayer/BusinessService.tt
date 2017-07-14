@@ -1,17 +1,13 @@
 ﻿<#@ template debug="false" hostspecific="false" language="C#" #>
 <#@ assembly name="System.Core" #>
+<#@ assembly name="$(SolutionDir)\DataModels\bin\Debug\DataModels.dll" #>
+<#@ import namespace="DataModels" #>
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
 <#@ output extension=".cs" #>
 <#
 var prjName = "YourProject"; 
-var tableName = "yourTable"; 
-
-var modelName = tableName+"Obj";
-var contextClassName = prjName+"Context";
-var contextInterfaceName = "I"+prjName;
-var repoName = tableName+"s";
 #>
 using System;
 using System.Collections.Generic;
@@ -28,11 +24,24 @@ using <#=prjName#>.DataAccess.Models;
 using System.Data.Entity.Migrations;
 
 /// <summary>
-/// This service is generated from NetGenerator
+/// This file is generated from NetGenerator
+/// providing basic features of business domain object
 /// </summary>
 namespace <#=prjName#>.BusinessLogic.Services
 {
-    public class <#=modelName#>Service
+<#
+var assembly = typeof(TableSample).Assembly;
+var types = assembly.GetTypes();
+foreach(var t in types){
+
+var tableName = t.Name; 
+
+var modelName = tableName+"Obj";
+var contextClassName = prjName+"Context";
+var contextInterfaceName = "I"+prjName;
+var repoName = tableName+"s";
+#>
+    public partial class <#=modelName#>Service
     {
         private <#=contextInterfaceName#> _dbContext;
         private ILog _log = LogManager.GetLogger(typeof(<#=modelName#>Service));
@@ -52,7 +61,7 @@ namespace <#=prjName#>.BusinessLogic.Services
                                     .FirstOrDefaultAsync(x => x.Id == id);
 
                     var detail = new <#=modelName#>();
-                    detail = MapperEx.CreateFrom<<#=tableName#>, <#=modelName#>(obj);
+                    detail = MapperEx.CreateFrom<<#=tableName#>, <#=modelName#>>(obj);
                     return detail;
                 }
             }
@@ -175,5 +184,9 @@ namespace <#=prjName#>.BusinessLogic.Services
             }
         }
     }
-}
 
+<#
+}
+#>
+
+}

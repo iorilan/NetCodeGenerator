@@ -1,19 +1,10 @@
-﻿<#@ template debug="false" hostspecific="false" language="C#" #>
-<#@ assembly name="System.Core" #>
-<#@ import namespace="System.Linq" #>
-<#@ import namespace="System.Text" #>
-<#@ import namespace="System.Collections.Generic" #>
-<#@ output extension=".cs" #>
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Microsoft.Owin.Security.Infrastructure;
 
-<#
-var prjName="ProjectName";
-#>
-namespace <#=prjName#>.Providers
+namespace ProjectName.Providers
 {
     public class ApplicationRefreshTokenProvider : AuthenticationTokenProvider
     {

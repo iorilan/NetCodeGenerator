@@ -51,6 +51,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ReflectObj.tt</DependentUpon>
     </Compile>
+    <Compile Include="UILayer\Authentication\ApplicationRefreshTokenProvider.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ApplicationRefreshTokenProvider.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UILayer\Controller.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Controller.tt</DependentUpon>
+    </Compile>
     <Content Include="DataLayer\IDbContext.txt" />
     <Compile Include="Helpers\DataTableHelpers.cs">
       <AutoGen>True</AutoGen>
@@ -111,21 +121,11 @@
     </Content>
     <Content Include="UILayer\Authentication\ApplicationRefreshTokenProvider.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ApplicationRefreshTokenProvider.txt</LastGenOutput>
-    </Content>
-    <Content Include="UILayer\Authentication\ApplicationRefreshTokenProvider.txt">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ApplicationRefreshTokenProvider.tt</DependentUpon>
+      <LastGenOutput>ApplicationRefreshTokenProvider.cs</LastGenOutput>
     </Content>
     <Content Include="UILayer\Controller.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Controller.txt</LastGenOutput>
-    </Content>
-    <Content Include="UILayer\Controller.txt">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Controller.tt</DependentUpon>
+      <LastGenOutput>Controller.cs</LastGenOutput>
     </Content>
     <Content Include="UILayer\Views\Create.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

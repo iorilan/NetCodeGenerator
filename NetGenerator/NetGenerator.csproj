@@ -152,17 +152,17 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Site.js</LastGenOutput>
     </Content>
-    <Content Include="UILayer\Views\Template\DisplayTemplates\DisplayDate.tt">
+    <Content Include="UILayer\Views\Shared\DisplayTemplates\DisplayDate.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>DisplayDate.cshtml</LastGenOutput>
     </Content>
-    <Content Include="UILayer\Views\Template\EditorTemplates\DisplayDate.tt">
+    <Content Include="UILayer\Views\Shared\EditorTemplates\DisplayDate.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>DisplayDate.cshtml</LastGenOutput>
     </Content>
-    <Content Include="UILayer\Views\_SharedLayout.tt">
+    <Content Include="UILayer\Views\Shared\_Layout.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>_SharedLayout.cshtml</LastGenOutput>
+      <LastGenOutput>_Layout.cshtml</LastGenOutput>
     </Content>
     <Content Include="UILayer\WebConfig.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -194,20 +194,20 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Index.tt</DependentUpon>
     </None>
-    <None Include="UILayer\Views\Template\DisplayTemplates\DisplayDate.cshtml">
+    <None Include="UILayer\Views\Shared\DisplayTemplates\DisplayDate.cshtml">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DisplayDate.tt</DependentUpon>
     </None>
-    <None Include="UILayer\Views\Template\EditorTemplates\DisplayDate.cshtml">
+    <None Include="UILayer\Views\Shared\EditorTemplates\DisplayDate.cshtml">
       <DependentUpon>DisplayDate.tt</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </None>
-    <None Include="UILayer\Views\_SharedLayout.cshtml">
+    <None Include="UILayer\Views\Shared\_Layout.cshtml">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>_SharedLayout.tt</DependentUpon>
+      <DependentUpon>_Layout.tt</DependentUpon>
     </None>
     <None Include="UILayer\WebConfig.config">
       <AutoGen>True</AutoGen>

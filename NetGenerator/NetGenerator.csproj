@@ -56,6 +56,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Controller.tt</DependentUpon>
     </Compile>
+    <Compile Include="UILayer\Models\Constants.cs">
+      <DependentUpon>Constants.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="UILayer\Models\AccountViewModels.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AccountViewModels.tt</DependentUpon>
+    </Compile>
     <Content Include="DataLayer\IDbContext.txt" />
     <Compile Include="Helpers\DataTableHelpers.cs">
       <AutoGen>True</AutoGen>
@@ -127,6 +137,18 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Controller.cs</LastGenOutput>
     </Content>
+    <Content Include="UILayer\Models\Constants.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Constants.cs</LastGenOutput>
+    </Content>
+    <Content Include="UILayer\Models\AccountViewModels.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>AccountViewModels.cs</LastGenOutput>
+    </Content>
+    <Content Include="UILayer\Views\Account\login.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>login.cshtml</LastGenOutput>
+    </Content>
     <Content Include="UILayer\Views\Create.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Create.cshtml</LastGenOutput>
@@ -174,6 +196,11 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <None Include="UILayer\Views\Account\login.cshtml">
+      <DependentUpon>login.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </None>
     <None Include="UILayer\Views\Create.cshtml">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

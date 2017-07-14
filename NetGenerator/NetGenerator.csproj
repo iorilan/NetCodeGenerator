@@ -143,14 +143,14 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Index.cshtml</LastGenOutput>
     </Content>
-    <Content Include="UILayer\Views\SiteJS.js">
+    <Content Include="UILayer\Scripts\Site.js">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SiteJS.tt</DependentUpon>
+      <DependentUpon>Site.tt</DependentUpon>
     </Content>
-    <Content Include="UILayer\Views\SiteJS.tt">
+    <Content Include="UILayer\Scripts\Site.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>SiteJS.js</LastGenOutput>
+      <LastGenOutput>Site.js</LastGenOutput>
     </Content>
     <Content Include="UILayer\Views\_SharedLayout.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -165,7 +165,6 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="UILayer\Scripts\" />
     <Folder Include="UILayer\Views\Template\" />
   </ItemGroup>
   <ItemGroup>

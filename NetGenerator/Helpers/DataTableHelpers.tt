@@ -4,9 +4,13 @@
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
 <#@ output extension=".cs" #>
-<# 
-var prjName = "YourPrj";
+/// <summary>
+/// This code is generated from NetGenerator
+/// </summary>
+<#
+var prjName = "YourProjectName"; 
 #>
+
 using System;
 using System.Collections.Generic;
 using System.Linq;

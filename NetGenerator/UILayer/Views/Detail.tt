@@ -1,6 +1,89 @@
 ﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="$(SolutionDir)\DataModels\bin\Debug\DataModels.dll" #>
 <#@ assembly name="System.Core" #>
 <#@ import namespace="System.Linq" #>
+<#@ import namespace="DataModels" #>
+<#@ assembly name="System.xml" #>
+<#@ import namespace="System" #>
+<#@ assembly name="System.Data" #>
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
-<#@ output extension=".txt" #>
+<#@ import namespace="System.Reflection" #>
+<#@ output extension=".cshtml" #>
+<#
+	var prjName = "YourProjectName";
+	var tableName = "YourTableName";
+	var modelName = tableName + "Obj";
+	var forType = typeof(TableSample);
+	var theDataAccessTypeName = forType.Name;
+#>
+
+@model <#=prjName#>.BusinessLogic.Models.<#=modelName#>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section PageContent{
+
+    
+    <div>
+        <h4><#=tableName#> Details</h4>
+        <hr />
+
+		<table class="table table-bordered table-striped">
+		
+		<#
+			var props = forType.GetProperties();
+			foreach (var p in props){
+				var pName = p.Name;
+				var typeName = p.PropertyType.Name;
+				if(typeName.Contains("Nullable")){
+					typeName = Nullable.GetUnderlyingType(p.PropertyType).Name;
+				}
+				if(pName != "Id"){
+		#>  <tr>
+                <td style="width:15%"><b> @Html.DisplayNameFor(model => model.<#=pName#>) </b></td>
+                <td style="width:85%"> @Html.DisplayFor(model => model.<#=pName#><# if(typeName == "DateTime") {#> , "DisplayDate" <# } #>) </td>
+            </tr>
+
+			<# 
+				} 
+			}
+			#>
+
+           
+        </table>
+
+
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-sm btn-primary" })
+        @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-sm btn-default" })
+    </p>
+}
+
+@section QuickAction
+{
+    <ul>
+        <li>
+            <a href="#" target="" class="active">
+                <span>Add New <#=tableName#></span>
+                <i class="icon-plus"></i>
+            </a>
+        </li>
+        <li>
+            <a href="#" target="">
+                <span>Update <#=tableName#></span>
+                <i class="icon-graph"></i>
+            </a>
+        </li>
+    </ul>
+}
+
+@section scripts {
+
+    <script type="text/javascript">
+
+    </script>
+}

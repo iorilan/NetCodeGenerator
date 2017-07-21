@@ -1,6 +1,142 @@
-﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+﻿<#@ template debug="true" hostspecific="false" language="C#" #>
+<#@ assembly name="$(SolutionDir)\DataModels\bin\Debug\DataModels.dll" #>
 <#@ assembly name="System.Core" #>
 <#@ import namespace="System.Linq" #>
+<#@ import namespace="DataModels" #>
+<#@ assembly name="System.Data" #>
+<#@ assembly name="System.xml" #>
+<#@ import namespace="System" #>
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Reflection" #>
 <#@ output extension=".cshtml" #>
+
+<#
+	var prjName = "YourProjectName";
+	var tableName = "YourTableName";
+	var modelName = tableName + "Obj";
+	var forType = typeof(TableSample);
+	var theDataAccessTypeName = forType.Name;
+#>
+@model List<<#=prjName#>.BusinessLogic.Models.<#=modelName#>>
+@using <#=prjName#>.BusinessLogic
+@using <#=prjName#>.BusinessLogic.Models
+@using <#=prjName#>.BusinessLogic.Helpers
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section PageContent{
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <a href="~/"><#=prjName#></a>
+                <i class="fa fa-circle"></i>
+            </li>
+            <li>
+                <span><#=tableName#></span>
+            </li>
+        </ul>
+    </div>
+
+    <div>
+        <br />
+        <a id="btnAddNew" class="btn sbold green" href="@Url.Action("Create")">
+            Add New <#=tableName#>
+            <i class="fa fa-plus"></i>
+        </a>
+    </div>
+    <br />
+
+    <table id="tblData" class="table table-striped table-bordered table-hover order-column">
+        <thead>
+            <tr class="data-list">
+			<#
+				var props = forType.GetProperties();
+				var count = 0;
+				foreach (var p in props){
+					var pName = p.Name;
+					count++;
+			#>
+			
+			<th style="width:20%;">@Html.DisplayNameFor(model => model.First().<#=pName#>)</th>
+
+			<# 
+					if(count == 4) { break; }
+				} 
+			#>
+
+                <th style="width:20%;">Action</th>
+            </tr>
+        </thead>
+    </table>
+
+
+}
+
+
+@section QuickAction
+{
+    <ul>
+        <li>
+            <a href="~/<#=tableName#>/Create" target="" class="active">
+                <span>Add New <#=tableName#></span>
+                <i class="icon-plus"></i>
+            </a>
+        </li>
+        <li>
+            <a href="#" target="">
+                <span>Update <#=tableName#></span>
+                <i class="icon-graph"></i>
+            </a>
+        </li>
+    </ul>
+}
+
+
+@section scripts {
+
+    <script type="text/javascript">
+
+            @{
+                var columns = DataTableHelper.DisplayColumns<<#=modelName#>>();
+            }
+
+        $(document).ready(function () {
+
+            $('#tblData').dataTable({
+                "processing": false,
+                "serverSide": true,
+                "searching": false,
+                //"stateSave": true,
+                "oLanguage": { "sInfoFiltered": "" },
+                "ajax": {
+                    "url": GetBaseUrl() + "/<#=tableName#>/GetJsonData",
+                    "type": "GET"
+                },
+                "columns": [
+                    { "data": "@columns[0]" },
+                    { "data": "@columns[1]" },
+                    { "data": "@columns[2]" },
+                    { "data": "@columns[3]" },
+                    {
+                        "data": "@columns[4]",
+                        "render": function (data, type, full, meta) {
+                            if (type === 'display') {
+                                var buttons = GetMainButtonO();
+                                buttons += GetDetailButton("/<#=tableName#>/Detail/", data);
+                                buttons += GetEditButton("/<#=tableName#>/Edit/", data);
+                                buttons += GetMainButtonC();
+                                return buttons;
+                            }
+                            else return data;
+                        },
+                        orderable: false
+                    }
+                ]
+            });
+
+        });
+    </script>
+}

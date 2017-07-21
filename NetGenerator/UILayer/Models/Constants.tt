@@ -1,0 +1,22 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ output extension=".cs" #>
+
+<#
+var prjName = "YourProject"; 
+#>
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+namespace <#=prjName#>.Models
+{
+    public class UIKeys
+    {
+        public const string IsSuccess = "IsSuccess";
+        public const string IsError = "IsError";
+        public const string Message = "Message";
+    }
+}

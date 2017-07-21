@@ -1,6 +1,95 @@
 ﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="$(SolutionDir)\DataModels\bin\Debug\DataModels.dll" #>
 <#@ assembly name="System.Core" #>
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Text" #>
+<#@ import namespace="DataModels" #>
+<#@ assembly name="System.xml" #>
+<#@ assembly name="System.Data" #>
 <#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Reflection" #>
 <#@ output extension=".cshtml" #>
+<#
+	var prjName = "YourProjectName";
+	var tableName = "YourTableName";
+	var modelName = tableName + "Obj";
+	var forType = typeof(TableSample);
+	var theDataAccessTypeName = forType.Name;
+#>
+
+@model <#=prjName#>.BusinessLogic.Models.<#=modelName#>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section PageContent{
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>Create <#=tableName#></h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+			<#
+				var props = forType.GetProperties();
+				foreach (var p in props){
+					var pName = p.Name;
+					var typeName = p.PropertyType.Name;
+					if(typeName.Contains("Nullable")){
+						typeName = Nullable.GetUnderlyingType(p.PropertyType).Name;
+					}
+
+					//Generate Controls if not ID
+					if(pName != "Id"){
+			#>
+			
+			<div class="form-group form-md-line-input">
+                @Html.LabelFor(model => model.<#=pName#>, htmlAttributes: new { @class = "control-label col-md-2 bold" })
+                <div class="col-md-10">
+                    <div class="input-icon left">
+                    @Html.EditorFor(model => model.<#=pName#>, new { htmlAttributes = new { @class = "form-control <# if(typeName == "DateTime") {#> datepicker <# } #>" } })
+                    <div class="form-control-focus"> </div>
+                        <i class="fa fa-user"></i>
+                    @Html.ValidationMessageFor(model => model.<#=pName#>, "", new { @class = "text-danger" })
+               </div>
+                     </div>
+            </div>
+
+			<# 
+					}else{
+			#>
+					 @Html.HiddenFor(model => model.<#=pName#>)
+			<#
+					}
+				} 
+			#>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Submit" class="btn btn-primary" />
+                </div>
+            </div>
+        </div>
+
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+
+}
+
+@section QuickAction{
+    <ul>
+        <li>
+            <a href="#" target="" class="active">
+                <span>Back To List</span>
+                <i class="icon-plus"></i>
+            </a>
+        </li>
+    </ul>
+}

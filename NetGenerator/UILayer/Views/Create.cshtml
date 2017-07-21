@@ -1,1 +1,214 @@
 ﻿
+
+@model YourProjectName.BusinessLogic.Models.YourTableNameObj
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section PageContent{
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>Create YourTableName</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+						
+			<div class="form-group form-md-line-input">
+                @Html.LabelFor(model => model.EquipmentUniqueId, htmlAttributes: new { @class = "control-label col-md-2 bold" })
+                <div class="col-md-10">
+                    <div class="input-icon left">
+                    @Html.EditorFor(model => model.EquipmentUniqueId, new { htmlAttributes = new { @class = "form-control " } })
+                    <div class="form-control-focus"> </div>
+                        <i class="fa fa-user"></i>
+                    @Html.ValidationMessageFor(model => model.EquipmentUniqueId, "", new { @class = "text-danger" })
+               </div>
+                     </div>
+            </div>
+
+						
+			<div class="form-group form-md-line-input">
+                @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2 bold" })
+                <div class="col-md-10">
+                    <div class="input-icon left">
+                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control " } })
+                    <div class="form-control-focus"> </div>
+                        <i class="fa fa-user"></i>
+                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+               </div>
+                     </div>
+            </div>
+
+						
+			<div class="form-group form-md-line-input">
+                @Html.LabelFor(model => model.Location, htmlAttributes: new { @class = "control-label col-md-2 bold" })
+                <div class="col-md-10">
+                    <div class="input-icon left">
+                    @Html.EditorFor(model => model.Location, new { htmlAttributes = new { @class = "form-control " } })
+                    <div class="form-control-focus"> </div>
+                        <i class="fa fa-user"></i>
+                    @Html.ValidationMessageFor(model => model.Location, "", new { @class = "text-danger" })
+               </div>
+                     </div>
+            </div>
+
+						
+			<div class="form-group form-md-line-input">
+                @Html.LabelFor(model => model.IsPhysical, htmlAttributes: new { @class = "control-label col-md-2 bold" })
+                <div class="col-md-10">
+                    <div class="input-icon left">
+                    @Html.EditorFor(model => model.IsPhysical, new { htmlAttributes = new { @class = "form-control " } })
+                    <div class="form-control-focus"> </div>
+                        <i class="fa fa-user"></i>
+                    @Html.ValidationMessageFor(model => model.IsPhysical, "", new { @class = "text-danger" })
+               </div>
+                     </div>
+            </div>
+
+						
+			<div class="form-group form-md-line-input">
+                @Html.LabelFor(model => model.EquipmentType, htmlAttributes: new { @class = "control-label col-md-2 bold" })
+                <div class="col-md-10">
+                    <div class="input-icon left">
+                    @Html.EditorFor(model => model.EquipmentType, new { htmlAttributes = new { @class = "form-control " } })
+                    <div class="form-control-focus"> </div>
+                        <i class="fa fa-user"></i>
+                    @Html.ValidationMessageFor(model => model.EquipmentType, "", new { @class = "text-danger" })
+               </div>
+                     </div>
+            </div>
+
+						
+			<div class="form-group form-md-line-input">
+                @Html.LabelFor(model => model.CommisionDate, htmlAttributes: new { @class = "control-label col-md-2 bold" })
+                <div class="col-md-10">
+                    <div class="input-icon left">
+                    @Html.EditorFor(model => model.CommisionDate, new { htmlAttributes = new { @class = "form-control  datepicker " } })
+                    <div class="form-control-focus"> </div>
+                        <i class="fa fa-user"></i>
+                    @Html.ValidationMessageFor(model => model.CommisionDate, "", new { @class = "text-danger" })
+               </div>
+                     </div>
+            </div>
+
+						
+			<div class="form-group form-md-line-input">
+                @Html.LabelFor(model => model.DecommissionDate, htmlAttributes: new { @class = "control-label col-md-2 bold" })
+                <div class="col-md-10">
+                    <div class="input-icon left">
+                    @Html.EditorFor(model => model.DecommissionDate, new { htmlAttributes = new { @class = "form-control  datepicker " } })
+                    <div class="form-control-focus"> </div>
+                        <i class="fa fa-user"></i>
+                    @Html.ValidationMessageFor(model => model.DecommissionDate, "", new { @class = "text-danger" })
+               </div>
+                     </div>
+            </div>
+
+						
+			<div class="form-group form-md-line-input">
+                @Html.LabelFor(model => model.PriceAtOwnerShip, htmlAttributes: new { @class = "control-label col-md-2 bold" })
+                <div class="col-md-10">
+                    <div class="input-icon left">
+                    @Html.EditorFor(model => model.PriceAtOwnerShip, new { htmlAttributes = new { @class = "form-control " } })
+                    <div class="form-control-focus"> </div>
+                        <i class="fa fa-user"></i>
+                    @Html.ValidationMessageFor(model => model.PriceAtOwnerShip, "", new { @class = "text-danger" })
+               </div>
+                     </div>
+            </div>
+
+						
+			<div class="form-group form-md-line-input">
+                @Html.LabelFor(model => model.WarrantyDescription, htmlAttributes: new { @class = "control-label col-md-2 bold" })
+                <div class="col-md-10">
+                    <div class="input-icon left">
+                    @Html.EditorFor(model => model.WarrantyDescription, new { htmlAttributes = new { @class = "form-control " } })
+                    <div class="form-control-focus"> </div>
+                        <i class="fa fa-user"></i>
+                    @Html.ValidationMessageFor(model => model.WarrantyDescription, "", new { @class = "text-danger" })
+               </div>
+                     </div>
+            </div>
+
+						
+			<div class="form-group form-md-line-input">
+                @Html.LabelFor(model => model.PreventiveMaintenanceDate, htmlAttributes: new { @class = "control-label col-md-2 bold" })
+                <div class="col-md-10">
+                    <div class="input-icon left">
+                    @Html.EditorFor(model => model.PreventiveMaintenanceDate, new { htmlAttributes = new { @class = "form-control  datepicker " } })
+                    <div class="form-control-focus"> </div>
+                        <i class="fa fa-user"></i>
+                    @Html.ValidationMessageFor(model => model.PreventiveMaintenanceDate, "", new { @class = "text-danger" })
+               </div>
+                     </div>
+            </div>
+
+						
+			<div class="form-group form-md-line-input">
+                @Html.LabelFor(model => model.ExpiryDate, htmlAttributes: new { @class = "control-label col-md-2 bold" })
+                <div class="col-md-10">
+                    <div class="input-icon left">
+                    @Html.EditorFor(model => model.ExpiryDate, new { htmlAttributes = new { @class = "form-control  datepicker " } })
+                    <div class="form-control-focus"> </div>
+                        <i class="fa fa-user"></i>
+                    @Html.ValidationMessageFor(model => model.ExpiryDate, "", new { @class = "text-danger" })
+               </div>
+                     </div>
+            </div>
+
+						
+			<div class="form-group form-md-line-input">
+                @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2 bold" })
+                <div class="col-md-10">
+                    <div class="input-icon left">
+                    @Html.EditorFor(model => model.Status, new { htmlAttributes = new { @class = "form-control " } })
+                    <div class="form-control-focus"> </div>
+                        <i class="fa fa-user"></i>
+                    @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+               </div>
+                     </div>
+            </div>
+
+						
+			<div class="form-group form-md-line-input">
+                @Html.LabelFor(model => model.ContractId, htmlAttributes: new { @class = "control-label col-md-2 bold" })
+                <div class="col-md-10">
+                    <div class="input-icon left">
+                    @Html.EditorFor(model => model.ContractId, new { htmlAttributes = new { @class = "form-control " } })
+                    <div class="form-control-focus"> </div>
+                        <i class="fa fa-user"></i>
+                    @Html.ValidationMessageFor(model => model.ContractId, "", new { @class = "text-danger" })
+               </div>
+                     </div>
+            </div>
+
+			
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Submit" class="btn btn-primary" />
+                </div>
+            </div>
+        </div>
+
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+
+}
+
+@section QuickAction{
+    <ul>
+        <li>
+            <a href="#" target="" class="active">
+                <span>Back To List</span>
+                <i class="icon-plus"></i>
+            </a>
+        </li>
+    </ul>
+}

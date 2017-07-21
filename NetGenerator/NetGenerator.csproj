@@ -51,6 +51,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ReflectObj.tt</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="UILayer\Authentication\ApplicationRefreshTokenProvider.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -60,6 +61,22 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Controller.tt</DependentUpon>
+=======
+    <Compile Include="UILayer\Controller.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Controller.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UILayer\Models\Constants.cs">
+      <DependentUpon>Constants.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="UILayer\Models\AccountViewModels.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AccountViewModels.tt</DependentUpon>
+>>>>>>> ce79bedf73e9efa4a323e288cb709cd3356dfb12
     </Compile>
     <Content Include="DataLayer\IDbContext.txt" />
     <Compile Include="Helpers\DataTableHelpers.cs">
@@ -126,6 +143,21 @@
     <Content Include="UILayer\Controller.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Controller.cs</LastGenOutput>
+<<<<<<< HEAD
+=======
+    </Content>
+    <Content Include="UILayer\Models\Constants.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Constants.cs</LastGenOutput>
+    </Content>
+    <Content Include="UILayer\Models\AccountViewModels.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>AccountViewModels.cs</LastGenOutput>
+    </Content>
+    <Content Include="UILayer\Views\Account\login.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>login.cshtml</LastGenOutput>
+>>>>>>> ce79bedf73e9efa4a323e288cb709cd3356dfb12
     </Content>
     <Content Include="UILayer\Views\Create.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -133,12 +165,7 @@
     </Content>
     <Content Include="UILayer\Views\Detail.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Detail.txt</LastGenOutput>
-    </Content>
-    <Content Include="UILayer\Views\Detail.txt">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Detail.tt</DependentUpon>
+      <LastGenOutput>Detail.cshtml</LastGenOutput>
     </Content>
     <Content Include="UILayer\Views\Edit.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -148,18 +175,26 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Index.cshtml</LastGenOutput>
     </Content>
-    <Content Include="UILayer\Views\SiteJS.js">
+    <Content Include="UILayer\Scripts\Site.js">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SiteJS.tt</DependentUpon>
+      <DependentUpon>Site.tt</DependentUpon>
     </Content>
-    <Content Include="UILayer\Views\SiteJS.tt">
+    <Content Include="UILayer\Scripts\Site.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>SiteJS.js</LastGenOutput>
+      <LastGenOutput>Site.js</LastGenOutput>
     </Content>
-    <Content Include="UILayer\Views\_SharedLayout.tt">
+    <Content Include="UILayer\Views\Shared\DisplayTemplates\DisplayDate.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>_SharedLayout.cshtml</LastGenOutput>
+      <LastGenOutput>DisplayDate.cshtml</LastGenOutput>
+    </Content>
+    <Content Include="UILayer\Views\Shared\EditorTemplates\DisplayDate.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DisplayDate.cshtml</LastGenOutput>
+    </Content>
+    <Content Include="UILayer\Views\Shared\_Layout.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>_Layout.cshtml</LastGenOutput>
     </Content>
     <Content Include="UILayer\WebConfig.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -169,15 +204,22 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="UILayer\Scripts\" />
-    <Folder Include="UILayer\Views\Template\" />
-  </ItemGroup>
-  <ItemGroup>
+    <None Include="UILayer\Views\Account\login.cshtml">
+      <DependentUpon>login.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </None>
     <None Include="UILayer\Views\Create.cshtml">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Create.tt</DependentUpon>
+    </None>
+    <None Include="UILayer\Views\Detail.cshtml">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Detail.tt</DependentUpon>
     </None>
     <None Include="UILayer\Views\Edit.cshtml">
       <AutoGen>True</AutoGen>
@@ -189,10 +231,20 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Index.tt</DependentUpon>
     </None>
-    <None Include="UILayer\Views\_SharedLayout.cshtml">
+    <None Include="UILayer\Views\Shared\DisplayTemplates\DisplayDate.cshtml">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>_SharedLayout.tt</DependentUpon>
+      <DependentUpon>DisplayDate.tt</DependentUpon>
+    </None>
+    <None Include="UILayer\Views\Shared\EditorTemplates\DisplayDate.cshtml">
+      <DependentUpon>DisplayDate.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </None>
+    <None Include="UILayer\Views\Shared\_Layout.cshtml">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_Layout.tt</DependentUpon>
     </None>
     <None Include="UILayer\WebConfig.config">
       <AutoGen>True</AutoGen>

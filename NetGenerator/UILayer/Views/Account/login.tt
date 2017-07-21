@@ -1,0 +1,93 @@
+﻿<#@ template debug="true" hostspecific="false" language="C#" #>
+<#@ assembly name="$(SolutionDir)\DataModels\bin\Debug\DataModels.dll" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="DataModels" #>
+<#@ assembly name="System.Data" #>
+<#@ assembly name="System.xml" #>
+<#@ import namespace="System" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Reflection" #>
+<#@ output extension=".cshtml" #>
+
+<#
+	var prjName = "YourProjectName";
+	var tableName = "YourTableName";
+	var modelName = tableName + "Obj";
+	var forType = typeof(TableSample);
+	var theDataAccessTypeName = forType.Name;
+#>
+
+@model <#=prjName#>.Models.LoginViewModel
+@{
+    Layout = null;
+}
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Login</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link href="~/assets2/global/css/googleFonts.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets2/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets2/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets2/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets2/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets2/global/css/components.min.css" rel="stylesheet" id="style_components" type="text/css" />
+    <link href="~/assets2/global/css/plugins.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets2/pages/css/login.min.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="~/favicon.ico" />
+</head>
+
+<body class="login">
+
+    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "login-form", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+
+         <!-- BEGIN LOGO -->
+        <div class="logo">
+            <a href="login">
+                <img src="~/assets2/layouts/layout/img/Logo.png" alt="" width="189" />
+            </a>
+        </div>
+        <!-- END LOGO -->
+        <!-- BEGIN LOGIN -->
+        <div class="content">
+            <!-- BEGIN LOGIN FORM -->
+                <h3 class="form-title font-green">Sign In</h3>
+                <div class="form-group">
+                    <label class="control-label visible-ie8 visible-ie9">@Html.LabelFor(m => m.UserName)</label>
+                    @Html.TextBoxFor(m => m.UserName, new { @class = "form-control form-control-solid placeholder-no-fix", @placeholder = "Username", @autocomplete = "off", required = "required", autofocus = "true" })
+                </div>
+                <div class="form-group">
+                    <label class="control-label visible-ie8 visible-ie9">@Html.LabelFor(m => m.Password)</label>
+                    @Html.PasswordFor(m => m.Password, new { @class = "form-control form-control-solid placeholder-no-fix", @placeholder = "Password", @autocomplete = "off", required = "required" })
+                </div>
+
+                    <div class="row">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn green uppercase">Login</button>
+                </div>
+            <!-- END LOGIN FORM -->
+        </div>
+
+        <div class="copyright"> ©Copyright 2017 <#=prjName#> </div>
+
+        <script src="~/assets2/global/plugins/jquery.min.js" type="text/javascript"></script>
+        <script src="~/assets2/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="~/assets2/global/plugins/js.cookie.min.js" type="text/javascript"></script>
+        <script src="~/assets2/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+        <script src="~/assets2/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+        <script src="~/assets2/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
+        <script src="~/assets2/global/scripts/app.min.js" type="text/javascript"></script>
+        <script src="~/assets2/pages/scripts/lock.min.js" type="text/javascript"></script>
+    }
+</body>
+
+</html>

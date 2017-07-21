@@ -1,10 +1,14 @@
-﻿using System;
+﻿/// <summary>
+/// This code is generated from NetGenerator
+/// </summary>
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace YourPrj.BusinessLogic.Helpers
+namespace YourProjectName.BusinessLogic.Helpers
 {
     public class SortingColumnAttribute : Attribute
     {
